@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_18_09_2017_12_26_15_am"
+        android:textColor="@color/detailTextColor"
+        android:textSize="@dimen/textSize" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/temp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temperature"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/temp_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/_0_00_u00b0c"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/hum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/hum_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/hum_00"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/polu1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/polution_level"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/polu_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/hum_00"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/status_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/normal"
+            android:textColor="@color/detailTextColor"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+
+</LinearLayout>

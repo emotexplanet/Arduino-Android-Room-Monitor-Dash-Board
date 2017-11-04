@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="10dp"
+    tools:context="com.startinnovationhub.emmanuel.roommonitordashboard.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:padding="0dp"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/temp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temperature"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/temp_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/temp1"
+            android:layout_marginLeft="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_toEndOf="@id/temp1"
+            android:layout_toRightOf="@id/temp1"
+            android:text="@string/_0_00_u00b0c"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/hum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/temp1"
+            android:text="@string/humidity"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hum_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/hum1"
+            android:layout_alignLeft="@id/temp_data"
+            android:layout_alignStart="@id/temp_data"
+            android:layout_toEndOf="@id/hum1"
+            android:layout_toRightOf="@id/hum1"
+            android:text="@string/hum_00"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/polu1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hum1"
+            android:text="@string/polution_level"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/polu_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/polu1"
+            android:layout_alignLeft="@id/temp_data"
+            android:layout_alignStart="@id/temp_data"
+            android:layout_toEndOf="@id/polu1"
+            android:layout_toRightOf="@id/polu1"
+            android:text="@string/hum_00"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/polu1"
+            android:text="@string/status"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/status_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/status1"
+            android:layout_alignLeft="@id/temp_data"
+            android:layout_alignStart="@id/temp_data"
+            android:layout_toEndOf="@id/status1"
+            android:layout_toRightOf="@id/status1"
+            android:text="@string/normal"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/btn_load"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:background="@color/colorPrimary"
+            android:text="@string/dataButton"
+            android:textColor="@color/buttonColor"
+            android:textSize="@dimen/textSize" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
