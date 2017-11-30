@@ -40,6 +40,5 @@
     <string name="login_status">Sign In</string>
     <string name="usernamelbl">Username</string>
     <string name="passwordlbl">Password</string>
-    <string name="disconnect">Disconnect</string>
 
 </resources>
