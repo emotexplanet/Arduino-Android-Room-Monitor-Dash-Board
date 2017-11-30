@@ -152,7 +152,7 @@ public class RecordsManager {
                 printWriter = new PrintWriter(new FileWriter(file));
 
                 printWriter.println("THE ROOM MONITOR RECORD");
-                printWriter.println("DATE, TEMPERATURE(\u2103)C, HUMIDITY(%), POLUTION LEVEL(%), STATUS");
+                printWriter.println("DATE, TEMPERATURE(\u2103)C, HUMIDITY(%), POLLUTION LEVEL(%), STATUS");
                 Log.d(TAG, "PRINTER WRITER EXPORTING FILE");
                 for (int i = 0; i < recordData.length; i++) {
                     String[] recordDetail = recordData[i].split("&");

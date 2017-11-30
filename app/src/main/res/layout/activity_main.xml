@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
-        android:padding="10dp">
+        android:layout_marginTop="50dp"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/temp1"
@@ -57,6 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/temp1"
+            android:layout_marginTop="10dp"
             android:text="@string/humidity"
             android:textColor="@color/textColor"
             android:textSize="@dimen/textSize"
@@ -82,7 +84,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/hum1"
-            android:text="@string/polution_level"
+            android:layout_marginTop="10dp"
+            android:text="@string/pollution_level"
             android:textColor="@color/textColor"
             android:textSize="@dimen/textSize"
             android:textStyle="bold" />
@@ -107,6 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/polu1"
+            android:layout_marginTop="10dp"
             android:text="@string/status"
             android:textColor="@color/textColor"
             android:textSize="@dimen/textSize"
@@ -126,17 +130,33 @@
             android:textSize="@dimen/textSize"
             android:textStyle="bold" />
 
-
-        <Button
-            android:id="@+id/btn_load"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
-            android:background="@color/colorPrimary"
-            android:text="@string/dataButton"
-            android:textColor="@color/buttonColor"
-            android:textSize="@dimen/textSize" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="@string/dataButton"
+                android:textColor="@color/buttonColor"
+                android:textSize="@dimen/textSize" />
+
+            <Button
+                android:id="@+id/btn_disconnect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="@string/disconnect"
+                android:textColor="@color/buttonColor"
+                android:textSize="@dimen/textSize" />
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 

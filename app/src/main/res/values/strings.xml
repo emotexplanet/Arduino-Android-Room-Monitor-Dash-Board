@@ -9,7 +9,7 @@
     <string name="dataButton">Data</string>
     <string name="humidity">Humidity:</string>
     <string name="hum_00">00%</string>
-    <string name="polution_level">Polution Level:</string>
+    <string name="pollution_level">Pollution Level:</string>
     <string name="status">Status:</string>
     <string name="normal">Normal</string>
     <string name="select_device">Select a Device to Connect</string>
@@ -33,5 +33,13 @@
     <string name="discoverable">Make discoverable</string>
     <string name="_18_09_2017_12_26_15_am">18/09/2017 12:26:15 AM</string>
 
+
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="login">Login</string>
+    <string name="login_status">Sign In</string>
+    <string name="usernamelbl">Username</string>
+    <string name="passwordlbl">Password</string>
+    <string name="disconnect">Disconnect</string>
 
 </resources>

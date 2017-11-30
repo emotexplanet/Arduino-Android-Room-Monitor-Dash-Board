@@ -81,11 +81,19 @@ public class MainActivity extends AppCompatActivity {
         statusView = (TextView) findViewById(R.id.status_data);
 
         Button btnData = (Button) findViewById(R.id.btn_load);
+        Button btnDiscBT = (Button)findViewById(R.id.btn_disconnect);
 
         btnData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showData();
+            }
+        });
+
+        btnDiscBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bluetoothService.stop();
             }
         });
 
@@ -290,7 +298,6 @@ public class MainActivity extends AppCompatActivity {
                         case BluetoothService.STATE_CONNECTED:
                             setStatus(getString(R.string.title_connected_to, bConnectedDeviceName));
                             if (!CONNECTION_FLAG) {
-                                CONNECTION_FLAG = true;
                                 byte[] send = Connection_pass.getBytes();
                                 bluetoothService.write(send);
                                 Log.d(TAG, "...Message Send: " + Connection_pass);
@@ -322,25 +329,21 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, "...Message Received: " + dataStringBuilder.toString() + " Byte: " + msg.arg1);
                         String rMsg = dataStringBuilder.substring(0, endOfLineIndex);
                         dataStringBuilder.delete(0, dataStringBuilder.length());
-                        if (rMsg == Connection_pass) {
-
+                        if (rMsg.equals(Connection_pass)) {
+                            CONNECTION_FLAG = true;
+                            Toast.makeText(MainActivity.this, "Ready to receive data from the room monitoring device!",
+                                    Toast.LENGTH_SHORT).show();
                         } else {
-                            boolean ft1 = rMsg.contains("*");
-                            boolean ft2 = rMsg.contains("#");
-                            if ((ft1) && (ft2)) {
-                                int fCh = rMsg.indexOf("*");
-                                int sCh = rMsg.indexOf("#");
+                            if (!rMsg.equals(Connection_pass) && CONNECTION_FLAG) {
+                                boolean ft1 = rMsg.contains("*");
+                                boolean ft2 = rMsg.contains("#");
+                                if ((ft1) && (ft2)) {
+                                    int fCh = rMsg.indexOf("*");
+                                    int sCh = rMsg.indexOf("#");
 
-                                String rData = rMsg.substring(fCh + 1, sCh);
-                                showRecord(rData);
-                                Calendar calendar = Calendar.getInstance();
-                                @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa");
-                                String datetime = simpleDateFormat.format(calendar.getTime());
-                                Log.d(TAG, "On Create save data...");
-                                String record = rData.concat("&").concat(datetime);
-                                recordsManager.saveData(MainActivity.this, record);
-                                String see = recordsManager.readRecord(MainActivity.this);
-                                Log.d(TAG, "On Create read data:::   " + see);
+                                    String rData = rMsg.substring(fCh + 1, sCh);
+                                    showRecord(rData);
+                                }
                             }
                         }
                     }
@@ -368,10 +371,20 @@ public class MainActivity extends AppCompatActivity {
     private void showRecord(String data) {
         Log.d(TAG, "Data update: " + data);
         String[] str = data.split("&");
-        tempView.setText(str[0].concat("°C"));
-        humView.setText(str[1].concat("%"));
-        polu_levView.setText(str[2].concat("%"));
-        statusView.setText(str[3]);
+        if(str.length > 3) {
+            tempView.setText(str[0].concat("°C"));
+            humView.setText(str[1].concat("%"));
+            polu_levView.setText(str[2].concat("%"));
+            statusView.setText(str[3]);
+            Calendar calendar = Calendar.getInstance();
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa");
+            String datetime = simpleDateFormat.format(calendar.getTime());
+            Log.d(TAG, "On Create save data...");
+            String record = data.concat("&").concat(datetime);
+            recordsManager.saveData(this, record);
+            String see = recordsManager.readRecord(this);
+            Log.d(TAG, "On Create read data:::   " + see);
+        }
     }
 
 }

@@ -3,7 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:gravity="center"
     android:padding="20dp"
     android:orientation="vertical">
 
@@ -74,7 +73,7 @@
             android:id="@+id/polu1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/polution_level"
+            android:text="@string/pollution_level"
             android:textColor="@color/detailTextColor"
             android:textSize="@dimen/textSize" />
 

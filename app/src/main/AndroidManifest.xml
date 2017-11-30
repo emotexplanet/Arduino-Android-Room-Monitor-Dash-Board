@@ -15,21 +15,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.startinnovationhub.emmanuel.roommonitordashboard.MainActivity"
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden">
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".LoginActivity"
             android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity
-            android:name="com.startinnovationhub.emmanuel.roommonitordashboard.DetailActivity"
-            android:configChanges="orientation|keyboardHidden" />
-        <activity
-            android:name="com.startinnovationhub.emmanuel.roommonitordashboard.DeviceListActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>
