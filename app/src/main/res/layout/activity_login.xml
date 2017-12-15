@@ -95,7 +95,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_gravity="center"
-            android:textColor="@color/background"
+            android:textColor="@color/textColor"
+            android:background="@color/colorPrimaryDark"
             android:textSize="@dimen/textSizeS"
             android:text="@string/login"/>
     </LinearLayout>

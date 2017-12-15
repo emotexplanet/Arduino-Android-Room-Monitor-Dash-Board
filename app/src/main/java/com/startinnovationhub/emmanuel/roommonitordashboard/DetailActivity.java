@@ -1,5 +1,6 @@
 package com.startinnovationhub.emmanuel.roommonitordashboard;
 
+import android.content.Context;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -64,9 +65,18 @@ public class DetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.ExportData:
-                if (!recordsManager.exportData(this)) {
-                    Toast.makeText(this, "Unable to export the record", LENGTH_SHORT).show();
+               try{
+                    boolean val = recordsManager.exportData(this);
+                    if (!val) {
+                        Toast.makeText(this, "Unable to export the record", LENGTH_SHORT).show();
+                    }
+                    //else {
+                        //Toast.makeText(this, "Record export successfully!", LENGTH_SHORT).show();
+                    //}
+                }catch (Exception ex){
+                    ex.printStackTrace();
                 }
+                //recordsManager.exportData(this);
                 break;
             case R.id.claerData:
                 if (recordsManager.ClearData(this)) {

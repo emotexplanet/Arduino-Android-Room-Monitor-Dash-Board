@@ -131,7 +131,7 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
@@ -141,7 +141,7 @@
                 android:id="@+id/btn_load"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:text="@string/dataButton"
                 android:textColor="@color/buttonColor"
                 android:textSize="@dimen/textSize" />
@@ -150,7 +150,8 @@
                 android:id="@+id/btn_disconnect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimaryDark"
                 android:text="@string/disconnect"
                 android:textColor="@color/buttonColor"
                 android:textSize="@dimen/textSize" />
