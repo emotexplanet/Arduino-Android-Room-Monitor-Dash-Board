@@ -371,6 +371,7 @@ public class MainActivity extends AppCompatActivity {
     private void showRecord(String data) {
         Log.d(TAG, "Data update: " + data);
         String[] str = data.split("&");
+        Log.d(TAG, "Data length: " + str.length);
         if(str.length > 3) {
             tempView.setText(str[0].concat("°C"));
             humView.setText(str[1].concat("%"));

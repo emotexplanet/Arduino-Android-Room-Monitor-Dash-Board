@@ -1,7 +1,6 @@
 package com.startinnovationhub.emmanuel.roommonitordashboard;
 
 import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -9,13 +8,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -82,7 +79,7 @@ public class RecordsManager {
     }
 
 
-    private String[] getRecord(Context context) {
+    public String[] getRecord(Context context) {
         String recordData = readRecord(context);
 
         if (recordData != null) {
@@ -138,47 +135,51 @@ public class RecordsManager {
 
     public boolean exportData(Context context) {
 
-        String primary_sd = System.getenv("EXTERNAL_STORAGE");
+       /* String primary_sd = System.getenv("EXTERNAL_STORAGE");
         if(primary_sd != null){
             Log.i(TAG, "External Storage: " + primary_sd);
         }
         String secondary_sd = System.getenv("SECONDARY_STORAGE");
         if(secondary_sd != null){
             Log.i(TAG, "External Storage: " + secondary_sd);
-        }
+        }*/
 
         // File rFile = Environment.getExternalStorageDirectory();
-        File dFile = new File(Environment.getExternalStorageDirectory(), "/Room Monitor/");
+        File dFile = new File(System.getenv("EXTERNAL_STORAGE"), "/Room Monitor/");
         //File dFile = new File(mFile, "/Room Monitor/");
         Log.d(TAG, "Export dir: " + dFile);
-        /*try {
-             if (dFile.getParentFile().mkdirs()) {
-            Log.d(TAG, "Make file: " + dFile);
-
-            String[] recordData = getRecord(context);
-            if (recordData != null) {
-
-                BufferedWriter writer = new BufferedWriter(new FileWriter(dFile, true));
-                writer.write("THE ROOM MONITOR RECORD");
-                writer.write("DATE, TEMPERATURE(\u2103)C, HUMIDITY(%), POLLUTION LEVEL(%), STATUS");
-                Log.d(TAG, "PRINTER WRITER EXPORTING FILE");
-                for (String aRecordData : recordData) {
-                    String[] recordDetail = aRecordData.split("&");
-                    String record = recordDetail[4].trim() + "," + recordDetail[0].trim() + "," + recordDetail[1].trim() + "," + recordDetail[2].trim() + "," + recordDetail[3].trim();
-                    writer.write(record);
-                }
-                writer.flush();
-                writer.close();
-                Toast.makeText(context, "Record successfully export to: " + dFile.toString(), Toast.LENGTH_LONG).show();
+        try {
+            if (!dFile.exists()) {
+                dFile.mkdir();
+                Log.d(TAG, "Make dir: " + dFile);
             }
+            if (dFile.getParentFile().mkdirs()) {
+                Log.d(TAG, "Make file: " + dFile);
+
+                String[] recordData = getRecord(context);
+                if (recordData != null) {
+
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(dFile, true));
+                    writer.write("THE ROOM MONITOR RECORD");
+                    writer.write("DATE, TEMPERATURE(\u2103)C, HUMIDITY(%), POLLUTION LEVEL(%), STATUS");
+                    Log.d(TAG, "PRINTER WRITER EXPORTING FILE");
+                    for (String aRecordData : recordData) {
+                        String[] recordDetail = aRecordData.split("&");
+                        String record = recordDetail[4].trim() + "," + recordDetail[0].trim() + "," + recordDetail[1].trim() + "," + recordDetail[2].trim() + "," + recordDetail[3].trim();
+                        writer.write(record);
+                    }
+                    writer.flush();
+                    writer.close();
+                    Toast.makeText(context, "Record successfully export to: " + dFile.toString(), Toast.LENGTH_LONG).show();
+                }
             } else {
                 return false;
             }
         } catch (IOException e) {
             Log.d(TAG, "Export dir: " + e.getMessage(), e);
-        }*/
+        }
 
-        if (!dFile.exists()) {
+        /*if (!dFile.exists()) {
             dFile.mkdir();
             Log.d(TAG, "Make dir: " + dFile);
         }
@@ -218,7 +219,7 @@ public class RecordsManager {
         } catch (IOException e) {
             Log.d(TAG, "Export dir 13: " + e.getMessage(), e);
             return false;
-        }
+        }*/
 
         return true;
 
